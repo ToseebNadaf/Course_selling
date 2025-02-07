@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
-    minLength: [20, "Please enter course description"],
+    minLength: [10, "Please enter course description"],
   },
 
   lectures: [
@@ -55,7 +55,7 @@ const schema = new mongoose.Schema({
 
   numOfVideos: {
     type: Number,
-    required: true,
+    default: 0,
   },
 
   category: {
@@ -69,7 +69,7 @@ const schema = new mongoose.Schema({
   },
 
   createdAt: {
-    type: String,
+    type: Date,
     default: Date.now(),
   },
 });
