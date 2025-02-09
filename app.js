@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import course from "./routes/courseRoutes.js";
 import user from "./routes/userRoutes.js";
 import ErrorMiddleware from "./middlewares/Error.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cookieParser());
 
 app.use("/api/v1", course);
 app.use("/api/v1", user);
