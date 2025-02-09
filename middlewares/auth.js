@@ -16,3 +16,16 @@ export const isAuthenticated = catchAsyncError(async (req, res, next) => {
 
   next();
 });
+
+export const authorizeAdmin = catchAsyncError(async (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return next(
+      new ErrorHandler(
+        `${req.user.role} is not allowed to access this resource`,
+        403
+      )
+    );
+  }
+
+  next();
+});
